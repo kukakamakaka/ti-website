@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TI Moving - Верстка Навбара</title>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+    /* 1. Обнуление стилей — чтобы браузер не добавлял свои лишние отступы */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Глобальные переменные: один раз меняешь здесь — меняется везде */
+    :root {
+        --bg-dark: #0F0F0F;
+        --primary-red: #C62121; /* Основной цвет из Figma (кнопки, лого) */
+        --text-white: #FFFFFF;
+        --font-main: 'Manrope', sans-serif;
+    }
+
+    body {
+        background-color: var(--bg-dark);
+        color: var(--text-white);
+        font-family: var(--font-main);
+        -webkit-font-smoothing: antialiased; /* Делает шрифт более четким (тонким) */
+    }
+
+    /* 2. Контейнер: ограничивает контент по бокам, чтобы он не разъезжался на весь экран */
+    .container {
+        width: 100%;
+        max-width: 1400px;     /* Ширина из Figma. Если макет уже — уменьшай это число */
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    /* 3. Шапка (Весь черный блок сверху) */
+    .header {
+        width: 100%;
+        height: 145px;          /* Высота шапки строго по Figma */
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия снизу */
+        position: fixed;       /* Фиксирует шапку сверху при скролле */
+        top: 0;
+        left: 0;
+        background: var(--bg-dark);
+        z-index: 1000;         /* Чтобы шапка была выше всех остальных элементов */
+    }
+
+    /* Обертка для навигации внутри контейнера */
+    .nav-wrapper {
+        display: flex;
+        justify-content: space-between; /* Расталкивает Лого, Меню и Акшены по краям */
+        align-items: center;
+        width: 100%;
+    }
+
+    /* Блок Логотипа */
+    .logo {
+        flex: 0 0 auto;        /* Говорит логотипу: "Не сжимайся и не растягивайся" */
+        display: flex;
+        flex-direction: column; /* Ставит иконку и надпись Since 2025 друг под друга */
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+    }
+    .logo img {
+        height: 81px;          /* Высота картинки логотипа */
+        width: 68px;
+    }
+    /* Меню навигации (Services, About Us и т.д.) */
+    .menu {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        gap:   55px;             /* Расстояние МЕЖДУ пунктами меню в Figma */
+    }
+
+    .menu__link {
+        text-decoration: none;
+        color: var(--text-white);
+        font-size: 17px;       /* Размер шрифта из твоих данных Figma */
+        font-weight: 400;      /* Жирность шрифта (Regular) */
+        transition: opacity 0.3s; /* Плавность при наведении */
+    }
+    .menu__link:hover {
+        opacity: 0.6;          /* Эффект прозрачности при наведении курсора */
+    }
+
+    /* Правая часть (Телефон + Кнопка + Поиск) */
+    .actions {
+        flex: 0 0 auto;
+        display: flex;
+        gap: 25px;             /* Расстояние между телефоном и кнопкой */
+    }
+
+    .phone {
+        display: flex;
+        align-items: center;
+        gap: 8px;              /* Расстояние между иконкой трубки и номером */
+        text-decoration: none;
+        color: var(--text-white);
+        font-size: 17px;
+    }
+    .phone img {
+        width: 20px;           /* Точный размер иконки трубки */
+        height: 20px;
+    }
+
+    /* Кнопка "Get a Quote" */
+    .btn-quote {
+        background-color: var(--primary-red);
+        color: #FFFFFF;
+        text-decoration: none;
+        height: 38px;
+        padding: 0 54px;       /* Внутренние отступы (ширина кнопки зависит от текста) */
+        border-radius: 60px;
+        display: flex;
+        align-items: center;
+        font-weight: 600;      /* Жирность текста (Semi-bold) */
+        font-size: 17px;
+        transition: transform 0.2s, background 0.3s;
+    }
+    .btn-quote:hover {
+        background-color: #A51B1B; /* Цвет становится чуть темнее при наведении */
+        transform: translateY(-1px); /* Кнопка слегка "подпрыгивает" */
+    }
+
+    /* Кнопка поиска (Лупа) */
+    .search-btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255, 255, 255, 0.29);
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-left: -15px; /* Магия: двигает лупу ЕЩЕ ближе к красной кнопке, не трогая телефон */
+}
+
+    /* Отступ основного контента */
+    .main-content {
+        margin-top: 100px;     /* Чтобы контент не заезжал под фиксированную шапку */
+        text-align: center;
+    }
+</style>
+
+</head>
+<body>
+
+    <header class="header">
+        <div class="container">
+            <div class="nav-wrapper">
+
+                <a href="/" class="logo">
+    <img src="themes/demo/assets/images/Group 1597878737.png" alt="TI Moving Logo">
+</a>
+
+                <nav class="menu">
+                    <a href="#" class="menu__link">Services</a>
+                    <a href="#" class="menu__link">About Us</a>
+                    <a href="#" class="menu__link">Gallery</a>
+                    <a href="#" class="menu__link">Reviews</a>
+                    <a href="#" class="menu__link">Contact Us</a>
+                </nav>
+
+                <div class="actions">
+                    <a href="tel:+77777777777" class="phone">
+    <img src="themes/demo/assets/images/Group 1597878739.png" alt="Phone Icon">
+    <span>+ 7 (777) 777–77–77</span>
+</a>
+
+                    <a href="#" class="btn-quote">Get a Quote</a>
+
+                    <button class="search-btn">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+</button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <h1 style="color: #fff; font-size: 48px;">Шапка готова!</h1>
+            <p style="opacity: 0.7;">Теперь давай делать Hero-секцию.</p>
+        </div>
+    </main>
+
+</body>
+</html>

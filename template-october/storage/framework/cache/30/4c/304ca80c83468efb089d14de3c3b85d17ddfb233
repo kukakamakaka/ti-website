@@ -1,0 +1,1 @@
+1752212408a:1:{i:0;O:8:"stdClass":3:{s:2:"id";i:3;s:4:"item";s:19:"zen_robots_settings";s:5:"value";s:93:"{"content":"User-agent: *\r\nDisallow: \/\r\nHost: $domain\r\nSitemap: $domain\/sitemap.xml"}";}}

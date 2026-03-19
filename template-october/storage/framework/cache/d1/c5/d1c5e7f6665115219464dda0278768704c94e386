@@ -1,0 +1,33 @@
+1752126898a:1:{s:13:"site/head.htm";a:5:{s:8:"fileName";s:13:"site/head.htm";s:7:"content";s:976:"<title>{{ this.page.meta_title }}</title>
+<meta name="description" content="{{ this.page.meta_description }}" />
+<meta name="title" content="{{ this.page.meta_title }}" />
+<link href="{{ this.page.id | page}}" rel="canonical" />
+<meta name="og:title" content="{{ this.page.meta_title }}" />
+<meta name="og:description" content="{{ this.page.meta_description }}" />
+<meta property="og:url" content="{{ url('/') }}{{ this.page.url }}" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:image"
+  content="{{ url('/') }}/storage/app/media/logoog.jpg"
+/>
+<link rel="shortcut icon" href="{{ url('/') }}/storage/app/media/fav.png" type="icon/png">
+<link rel="stylesheet" href="{{ 'assets/css/libs/swiper-bundle.min.css'|theme }}">
+<link rel="stylesheet" href="{{ 'assets/css/libs/fancybox.css'|theme }}">
+{# <link rel="stylesheet" href="{{ 'assets/css/libs/aos.css'|theme }}"> #}
+<link rel="stylesheet" href="{{ ['assets/css/style.scss']|theme }}">";s:5:"mtime";i:1740031377;s:6:"markup";s:976:"<title>{{ this.page.meta_title }}</title>
+<meta name="description" content="{{ this.page.meta_description }}" />
+<meta name="title" content="{{ this.page.meta_title }}" />
+<link href="{{ this.page.id | page}}" rel="canonical" />
+<meta name="og:title" content="{{ this.page.meta_title }}" />
+<meta name="og:description" content="{{ this.page.meta_description }}" />
+<meta property="og:url" content="{{ url('/') }}{{ this.page.url }}" />
+<meta property="og:type" content="website" />
+<meta
+  property="og:image"
+  content="{{ url('/') }}/storage/app/media/logoog.jpg"
+/>
+<link rel="shortcut icon" href="{{ url('/') }}/storage/app/media/fav.png" type="icon/png">
+<link rel="stylesheet" href="{{ 'assets/css/libs/swiper-bundle.min.css'|theme }}">
+<link rel="stylesheet" href="{{ 'assets/css/libs/fancybox.css'|theme }}">
+{# <link rel="stylesheet" href="{{ 'assets/css/libs/aos.css'|theme }}"> #}
+<link rel="stylesheet" href="{{ ['assets/css/style.scss']|theme }}">";s:4:"code";N;}}
