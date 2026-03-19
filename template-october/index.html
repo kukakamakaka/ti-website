@@ -23,6 +23,7 @@
     }
 
     body {
+        height: 2000px; /* Это просто чтобы появилась полоса прокрутки */
         background-color: var(--bg-dark);
         color: var(--text-white);
         font-family: var(--font-main);
@@ -34,22 +35,37 @@
         width: 100%;
         max-width: 1400px;     /* Ширина из Figma. Если макет уже — уменьшай это число */
         margin: 0 auto;
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
     /* 3. Шапка (Весь черный блок сверху) */
-    .header {
-        width: 100%;
-        height: 145px;          /* Высота шапки строго по Figma */
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия снизу */
-        position: fixed;       /* Фиксирует шапку сверху при скролле */
-        top: 0;
-        left: 0;
-        background: var(--bg-dark);
-        z-index: 1000;         /* Чтобы шапка была выше всех остальных элементов */
-    }
+    /* 3. Шапка */
+.header {
+    width: 100%;
+    height: 145px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+    /* Начальное состояние: полностью прозрачно */
+    background: transparent;
+    border-bottom: 1px solid transparent;
+
+    /* Плавность перехода (0.4 секунды) */
+    transition: all 0.4s ease;
+}
+
+/* Это состояние включится при скролле через JavaScript */
+.header.scrolled {
+    height: 90px; /* При скролле шапку лучше сделать чуть компактнее */
+    background: rgba(15, 15, 15, 0.7); /* Полупрозрачный темный фон */
+    backdrop-filter: blur(15px);      /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия проявляется */
+}
 
     /* Обертка для навигации внутри контейнера */
     .nav-wrapper {
@@ -149,6 +165,93 @@
         margin-top: 100px;     /* Чтобы контент не заезжал под фиксированную шапку */
         text-align: center;
     }
+
+    /* Контейнер для пункта с выпадашкой */
+.menu__item {
+    position: relative; /* Чтобы окошко позиционировалось относительно этого пункта */
+    padding-bottom: 20px; /* Технический отступ, чтобы мышка не "теряла" окно при переходе */
+    margin-bottom: -20px;
+}
+
+/* Стили самого белого окошка */
+/* 1. Уменьшаем само белое окно (padding) */
+.dropdown {
+    position: absolute;
+    width: 265.4px;         /* Ширина по Figma */
+    background: #FFFFFF;    /* Фон */
+    border-radius: 10px;    /* Скругление */
+    top: 86.4px;            /* Позиция сверху по Figma */
+    left: -20px;
+
+    /* Уменьшили внутренний отступ окна, чтобы текст был ближе к краям */
+    padding: 10px;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
+}
+
+/* 2. Убираем все лишнее у списка */
+.dropdown ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* 3. Настройка самих строк (пунктов) */
+.dropdown li a {
+    display: block;
+
+    /* ПЕРВЫЙ ЦИФРА (5px) — уменьшает расстояние МЕЖДУ строками */
+    /* ВТОРАЯ ЦИФРА (10px) — это отступ слева (тот самый абзац) */
+    padding: 3px 10px;
+
+    color: #151515;         /* Цвет текста из макета */
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;       /* Regular */
+    font-size: 17px;        /* Размер из Figma */
+    text-decoration: none;
+    line-height: 1.2;       /* Делает строки более прижатыми друг к другу */
+    transition: background 0.2s;
+    border-radius: 5px;
+}
+
+/* Эффект при наведении на конкретную строку */
+.dropdown li a:hover {
+    background: #f9f9f9;
+    color: var(--primary-red);
+}
+
+/* Показываем при наведении */
+.menu__item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    top: 50px; /* Легкая анимация всплытия */
+}
+
+/* Список внутри окошка */
+.dropdown__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Расстояние между строками */
+}
+
+.dropdown__list li a {
+    text-decoration: none;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 100%;
+    color: #151515; /* Твой цвет текста из Figma */
+    transition: color 0.2s;
+}
+
+.dropdown__list li a:hover {
+    color: var(--primary-red); /* Подсветим красным при наведении на пункт */
+}
 </style>
 
 </head>
@@ -163,12 +266,25 @@
 </a>
 
                 <nav class="menu">
-                    <a href="#" class="menu__link">Services</a>
-                    <a href="#" class="menu__link">About Us</a>
-                    <a href="#" class="menu__link">Gallery</a>
-                    <a href="#" class="menu__link">Reviews</a>
-                    <a href="#" class="menu__link">Contact Us</a>
-                </nav>
+    <div class="menu__item">
+        <a href="#" class="menu__link">Services</a>
+
+        <div class="dropdown">
+            <ul class="dropdown__list">
+                <li><a href="#">Local Moving</a></li>
+                <li><a href="#">Long Distance Moving</a></li>
+                <li><a href="#">Office / Commercial Moving</a></li>
+                <li><a href="#">Packing Services</a></li>
+                <li><a href="#">Storage Solutions</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="#" class="menu__link">About Us</a>
+    <a href="#" class="menu__link">Gallery</a>
+    <a href="#" class="menu__link">Reviews</a>
+    <a href="#" class="menu__link">Contact Us</a>
+</nav>
 
                 <div class="actions">
                     <a href="tel:+77777777777" class="phone">
@@ -197,5 +313,18 @@
         </div>
     </main>
 
+
+<script>
+    const header = document.querySelector('.header');
+
+    window.addEventListener('scroll', () => {
+        // Если прокрутили больше чем на 50 пикселей вниз
+        if (window.scrollY > 50) {
+            header.classList.add('scrolled');
+        } else {
+            header.classList.remove('scrolled');
+        }
+    });
+</script>
 </body>
 </html>
