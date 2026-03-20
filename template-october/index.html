@@ -186,9 +186,7 @@
     border-radius: 10px;
     top: 86.4px;
     left: -20px;
-
     padding: 10px;
-
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -335,6 +333,7 @@
     color: #FFFFFF !important;
     transform: translateY(-2px);
 }
+
 /* --- МОБИЛЬНАЯ АДАПТИВНОСТЬ --- */
 /* Скрываю бургер на десктопе */
 .burger {
@@ -358,25 +357,26 @@
 @media (max-width: 1100px) {
 
     .nav-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 100%;
-}
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
     .logo {
-    margin-top: 10px;
-}
+        margin-top: 10px;
+    }
 
-.actions {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
 
-.burger {
-    margin: 0;
-    display: flex;
-}
+    .burger {
+        margin: 0;
+        display: flex;
+    }
 
     .header {
         height: 80px !important;
@@ -398,164 +398,220 @@
 
     @media (max-width: 1100px) {
 
-    .nav-wrapper {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 100%;
-    }
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
 
-    .logo {
-        margin-top: 25px;
-    }
+        .logo {
+            margin-top: 25px;
+        }
 
-    .actions {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
+        .actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
 
-    .header {
-        height: 100px !important;
-        background: rgba(15, 15, 15, 0.06) !important;
-        backdrop-filter: blur( 5px);
-    }
-
-
-    .menu__link, .phone, .btn-quote {
-        display: none !important;
-    }
-
-
-    .burger {
-        display: flex !important;
-        z-index: 2000;
-        margin-left: 10px;
-    }
-
-    /* 3. Выезжающее окно меню */
-    .menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 85%;
-        height: 100vh;
-        background: rgba(13, 13, 13, 0.95);
-        backdrop-filter: blur(25px);
-        -webkit-backdrop-filter: blur(25px);
-        border-left: 1px solid rgba(255, 255, 255, 0.08);
-        display: flex !important;
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: 120px 35px 40px;
-        gap: 5px;
-        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 1500;
-    }
-
-
-    .menu.active {
-        right: 0 !important;
-    }
-
-
-    .menu__link {
-        display: flex !important;
-        align-items: center;
-        justify-content: space-between;
-        font-size: 22px;
-        font-weight: 600;
-        color: #FFFFFF !important;
-        padding: 18px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-        text-decoration: none;
-        transition: color 0.3s ease;
-    }
-    .menu__item.active > .menu__link {
-        color: rgba(255, 255, 255, 0.5) !important;
-    }
-
-    .menu__item.active > .menu__link::after {
-        transform: rotate(45deg);
-        color: rgba(255, 255, 255, 0.5);
-    }
-
-    .menu__item > .menu__link::after {
-        content: '+';
-        font-size: 24px;
-        color: var(--primary-red);
-        transition: transform 0.4s;
-    }
-
-    .menu__item.active > .menu__link::after {
-        transform: rotate(45deg);
-    }
-
-    /* 4. Выпадающий список Services */
-    /* Скрыт по умолчанию */
-    .menu__item .dropdown {
-        display: none !important;
-        position: static !important;
-        opacity: 1 !important;
-        visibility: visible !important;
+        .header {
         background: transparent !important;
-        box-shadow: none !important;
-        width: 100% !important;
+            backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+            border: none !important;
+            height: 100px !important;
+            box-shadow: none !important;
     }
 
-    /* Показываем при клике */
-    .menu__item.active .dropdown {
-        display: block !important;
-        margin: 10px 0 20px 0;
-        background: rgba(255, 255, 255, 0.03) !important;
-        border-radius: 20px;
-        padding: 15px 25px !important;
+
+        .menu__link, .phone, .btn-quote {
+            display: none !important;
+        }
+
+
+        .burger {
+            display: flex !important;
+            z-index: 2000;
+            margin-left: 10px;
+        }
+
+        /* 3. Выезжающее окно меню */
+       .menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 85%;
+    height: 100vh;
+           background: rgba(255, 255, 255, 0.07);
+           backdrop-filter: blur(80px);
+    -webkit-backdrop-filter: blur(80px);
+           border-left: 1px solid rgba(255, 255, 255, 0.15);
+    display: flex !important;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 120px 35px 40px;
+    gap: 5px;
+    transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1500;
+}
+
+
+        .menu.active {
+            right: 0 !important;
+        }
+
+
+        .menu__link {
+            display: flex !important;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 22px;
+            font-weight: 600;
+            color: #FFFFFF !important;
+            padding: 18px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .menu__item.active > .menu__link {
+            color: rgba(255, 255, 255, 0.5) !important;
+        }
+
+        .menu__item.active > .menu__link::after {
+            transform: rotate(45deg);
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .menu__item > .menu__link::after {
+            content: '+';
+            font-size: 24px;
+            color: var(--primary-red);
+            transition: transform 0.4s;
+        }
+
+        .menu__item.active > .menu__link::after {
+            transform: rotate(45deg);
+        }
+
+        /* 4. Выпадающий список Services */
+        /* Скрыт по умолчанию */
+        .menu__item .dropdown {
+            display: none !important;
+            position: static !important;
+            opacity: 1 !important;
+            visibility: visible !important;
+            background: transparent !important;
+            box-shadow: none !important;
+            width: 100% !important;
+        }
+
+        /* Показываем при клике */
+        .menu__item.active .dropdown {
+            display: block !important;
+            margin: 10px 0 20px 0;
+            background: rgba(255, 255, 255, 0.03) !important;
+            border-radius: 20px;
+            padding: 15px 25px !important;
+        }
+
+        .dropdown__list {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            list-style: none;
+        }
+
+        .dropdown li a {
+            display: flex !important;
+            color: rgba(255, 255, 255, 0.5) !important;
+            font-size: 17px !important;
+            padding: 12px 0 !important;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .dropdown li a:hover {
+            color: #b82120 !important;
+            padding-left: 10px;
+        }
+
+        /* Анимация бургера */
+        .burger.active span:nth-child(1) {
+            transform: translateY(9px) rotate(45deg);
+        }
+
+        .burger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .burger.active span:nth-child(3) {
+            transform: translateY(-9px) rotate(-45deg);
+        }
+
+        .hero {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            padding-top: 80px;
+            height: 100vh;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-attachment: scroll !important;
+        }
+
+        .hero .hero__content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero .hero__title,
+        .hero .hero__title span {
+            transform: none !important;
+            font-size: 42px !important;
+            line-height: 1.2 !important;
+            margin-bottom: 20px;
+            letter-spacing: -0.01em;
+        }
+
+        .hero .hero__text {
+            font-size: 18px !important;
+            line-height: 1.4 !important;
+            margin: 0 auto 30px !important;
+            max-width: 100%;
+            font-weight: 400;
+        }
+
+
+        .hero .btn-quote {
+            display: inline-flex !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            height: 50px !important;
+            padding: 0 !important;
+            font-size: 18px !important;
+            margin: 0 auto;
+            justify-content: center;
+        }
     }
 
-    .dropdown__list {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
-        list-style: none;
-    }
+    /* маленькие экраны (iPhone SE и т.д.) */
+    @media (max-width: 480px) {
+        .hero .hero__title,
+        .hero .hero__title span {
+            font-size: 34px !important;
+        }
 
-    .dropdown li a {
-        display: flex !important;
-        color: rgba(255, 255, 255, 0.5) !important;
-        font-size: 17px !important;
-        padding: 12px 0 !important;
-        text-decoration: none;
-        transition: 0.3s;
-    }
+        .hero .hero__text {
+            font-size: 16px !important;
+        }
 
-    .dropdown li a:hover {
-        color: #b82120 !important;
-        padding-left: 10px;
-    }
-
-    /* Анимация бургера */
-    .burger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .burger.active span:nth-child(2) { opacity: 0; }
-    .burger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
-
-    /* Адаптив для Hero внутри @media */
-    .hero {
-        padding-top: 80px; /* Уменьшаем отступ, так как шапка стала меньше */
-        height: 100vh;
-        text-align: center; /* Центрируем текст на мобилках */
-    }
-
-    .hero__container {
-        justify-content: center; /* Центрируем контейнер */
-    }
-
-    .hero__title {
-        font-size: 40px; /* Уменьшаем шрифт */
-    }
-
-    .hero__text {
-        font-size: 18px;
-        margin: 0 auto 30px; /* Центрируем и уменьшаем отступ */
+        .hero .btn-quote {
+            max-width: 100% !important;
+        }
     }
 }
 
