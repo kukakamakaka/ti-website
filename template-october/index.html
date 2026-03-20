@@ -3,43 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TI Moving - Верстка Навбара</title>
+    <title>TI Moving</title>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 
 <style>
-    /* 1. Обнуление стилей — чтобы браузер не добавлял свои лишние отступы */
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    /* Глобальные переменные: один раз меняешь здесь — меняется везде */
+
     :root {
         --bg-dark: #0F0F0F;
-        --primary-red: #C62121; /* Основной цвет из Figma (кнопки, лого) */
+        --primary-red: #C62121;
         --text-white: #FFFFFF;
         --font-main: 'Manrope', sans-serif;
     }
 
     body {
-        height: 2000px; /* Это просто чтобы появилась полоса прокрутки */
+        height: 2000px;
         background-color: var(--bg-dark);
         color: var(--text-white);
         font-family: var(--font-main);
-        -webkit-font-smoothing: antialiased; /* Делает шрифт более четким (тонким) */
+        -webkit-font-smoothing: antialiased;
     }
 
-    /* 2. Контейнер: ограничивает контент по бокам, чтобы он не разъезжался на весь экран */
     .container {
         width: 100%;
-        max-width: 1400px;     /* Ширина из Figma. Если макет уже — уменьшай это число */
+        max-width: 1400px;
         margin: 0 auto;
         padding: 0 10px;
     }
 
-    /* 3. Шапка (Весь черный блок сверху) */
-    /* 3. Шапка */
+
 .header {
     width: 100%;
     height: 145px;
@@ -50,51 +47,51 @@
     left: 0;
     z-index: 1000;
 
-    /* Начальное состояние: полностью прозрачно */
+
     background: transparent;
     border-bottom: 1px solid transparent;
 
-    /* Плавность перехода (0.4 секунды) */
+
     transition: all 0.4s ease;
 }
 
-/* Это состояние включится при скролле через JavaScript */
+
 .header.scrolled {
-    height: 90px; /* При скролле шапку лучше сделать чуть компактнее */
-    background: rgba(15, 15, 15, 0.7); /* Полупрозрачный темный фон */
-    backdrop-filter: blur(15px);      /* Эффект матового стекла */
+    height: 90px;
+    background: rgba(15, 15, 15, 0.7);
+    backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая линия проявляется */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-    /* Обертка для навигации внутри контейнера */
+
     .nav-wrapper {
         display: flex;
-        justify-content: space-between; /* Расталкивает Лого, Меню и Акшены по краям */
+        justify-content: space-between;
         align-items: center;
         width: 100%;
     }
 
-    /* Блок Логотипа */
+
     .logo {
-        flex: 0 0 auto;        /* Говорит логотипу: "Не сжимайся и не растягивайся" */
+        flex: 0 0 auto;
         display: flex;
-        flex-direction: column; /* Ставит иконку и надпись Since 2025 друг под друга */
+        flex-direction: column;
         align-items: center;
         text-decoration: none;
         color: inherit;
     }
     .logo img {
-    height: 81px; /* Твой размер из Figma */
-    width: auto;  /* Ширину лучше оставить авто, чтобы не искажать пропорции */
-    transition: all 0.4s ease; /* Плавность для уменьшения */
-}
-    /* Уменьшаем логотип, когда шапка сжалась */
-.header.scrolled .logo img {
-    height: 60px; /* Подбери на глаз, чтобы вписалось в 90px высоты шапки */
+    height: 81px;
+    width: auto;
+    transition: all 0.4s ease;
 }
 
-    /* Меню навигации (Services, About Us и т.д.) */
+.header.scrolled .logo img {
+    height: 60px;
+}
+
+
     .menu {
         flex: 1;
         display: flex;
@@ -105,20 +102,19 @@
     .menu__link {
         text-decoration: none;
         color: var(--text-white);
-        font-size: 17px;       /* Размер шрифта из твоих данных Figma */
-        font-weight: 400;      /* Жирность шрифта (Regular) */
-        transition: opacity 0.3s; /* Плавность при наведении */
+        font-size: 17px;
+        font-weight: 400;
+        transition: opacity 0.3s;
     }
     .menu__link:hover {
-        opacity: 0.6;          /* Эффект прозрачности при наведении курсора */
+        opacity: 0.6;
     }
 
     .menu__item:hover .menu__link {
-    color: #A0A0A0; /* Тот самый серый цвет. Можешь заменить на #888 или любой из Figma */
-    opacity: 1;     /* Отменяем прозрачность, если она мешает */
+    color: #A0A0A0;
+    opacity: 1;
 }
 
-    /* Правая часть (Телефон + Кнопка + Поиск) */
     .actions {
         flex: 0 0 auto;
         display: flex;
@@ -138,7 +134,7 @@
         height: 20px;
     }
 
-    /* Кнопка "Get a Quote" */
+
     .btn-quote {
         background-color: var(--primary-red);
         color: #FFFFFF;
@@ -148,16 +144,15 @@
         border-radius: 60px;
         display: flex;
         align-items: center;
-        font-weight: 600;      /* Жирность текста (Semi-bold) */
+        font-weight: 600;
         font-size: 17px;
         transition: transform 0.2s, background 0.3s;
     }
     .btn-quote:hover {
-        background-color: #A51B1B; /* Цвет становится чуть темнее при наведении */
-        transform: translateY(-1px); /* Кнопка слегка "подпрыгивает" */
+        background-color: #A51B1B;
+        transform: translateY(-1px);
     }
 
-    /* Кнопка поиска (Лупа) */
     .search-btn {
     width: 40px;
     height: 40px;
@@ -168,33 +163,29 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    margin-left: -15px; /* Магия: двигает лупу ЕЩЕ ближе к красной кнопке, не трогая телефон */
+    margin-left: -15px;
 }
 
-    /* Отступ основного контента */
     .main-content {
-        margin-top: 100px;     /* Чтобы контент не заезжал под фиксированную шапку */
+        margin-top: 100px;
         text-align: center;
     }
 
-    /* Контейнер для пункта с выпадашкой */
 .menu__item {
-    position: relative; /* Чтобы окошко позиционировалось относительно этого пункта */
-    padding-bottom: 20px; /* Технический отступ, чтобы мышка не "теряла" окно при переходе */
+    position: relative;
+    padding-bottom: 20px;
     margin-bottom: -20px;
 }
 
-/* Стили самого белого окошка */
-/* 1. Уменьшаем само белое окно (padding) */
+
 .dropdown {
     position: absolute;
-    width: 265.4px;         /* Ширина по Figma */
-    background: #FFFFFF;    /* Фон */
-    border-radius: 10px;    /* Скругление */
-    top: 86.4px;            /* Позиция сверху по Figma */
+    width: 265.4px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    top: 86.4px;
     left: -20px;
 
-    /* Уменьшили внутренний отступ окна, чтобы текст был ближе к краям */
     padding: 10px;
 
     opacity: 0;
@@ -204,42 +195,36 @@
     box-shadow: 0px 8px 20px rgba(0,0,0,0.1);
 }
 
-/* 2. Убираем все лишнее у списка */
 .dropdown ul {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-/* 3. Настройка самих строк (пунктов) */
 .dropdown li a {
     display: block;
-
-    /* ПЕРВЫЙ ЦИФРА (5px) — уменьшает расстояние МЕЖДУ строками */
-    /* ВТОРАЯ ЦИФРА (10px) — это отступ слева (тот самый абзац) */
     padding: 3px 10px;
 
-    color: #151515;         /* Цвет текста из макета */
+    color: #151515;
     font-family: 'Manrope', sans-serif;
-    font-weight: 400;       /* Regular */
-    font-size: 17px;        /* Размер из Figma */
+    font-weight: 400;
+    font-size: 17px;
     text-decoration: none;
-    line-height: 1.2;       /* Делает строки более прижатыми друг к другу */
+    line-height: 1.2;
     transition: background 0.2s;
     border-radius: 5px;
 }
 
-/* Эффект при наведении на конкретную строку */
 .dropdown li a:hover {
     background: #f9f9f9;
     color: var(--primary-red);
 }
 
-/* Показываем при наведении */
+
 .menu__item:hover .dropdown {
     opacity: 1;
     visibility: visible;
-    top: 50px; /* Легкая анимация всплытия */
+    top: 50px;
 }
 
 /* Список внутри окошка */
@@ -256,13 +241,218 @@
     font-weight: 400;
     font-size: 17px;
     line-height: 100%;
-    color: #151515; /* Твой цвет текста из Figma */
+    color: #151515;
     transition: color 0.2s;
 }
 
 .dropdown__list li a:hover {
-    color: var(--primary-red); /* Подсветим красным при наведении на пункт */
+    color: var(--primary-red);
 }
+
+/* --- МОБИЛЬНАЯ АДАПТИВНОСТЬ --- */
+/* Скрываю бургер на десктопе */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 1100px) {
+
+    .nav-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+    .logo {
+    margin-top: 10px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.burger {
+    margin: 0;
+    display: flex;
+}
+
+    .header {
+        height: 80px !important;
+        background: rgba(15, 15, 15, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+
+
+    .menu__link, .phone, .btn-quote {
+        display: none !important;
+    }
+
+
+    .burger {
+        display: flex !important;
+        z-index: 2000;
+        margin-left: 10px;
+    }
+
+    @media (max-width: 1100px) {
+
+    .nav-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .logo {
+        margin-top: 10px;
+    }
+
+    .actions {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .header {
+        height: 80px !important;
+        background: rgba(15, 15, 15, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+
+
+    .menu__link, .phone, .btn-quote {
+        display: none !important;
+    }
+
+
+    .burger {
+        display: flex !important;
+        z-index: 2000;
+        margin-left: 10px;
+    }
+
+    /* 3. Выезжающее окно меню */
+    .menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 85%;
+        height: 100vh;
+        background: rgba(13, 13, 13, 0.95);
+        backdrop-filter: blur(25px);
+        -webkit-backdrop-filter: blur(25px);
+        border-left: 1px solid rgba(255, 255, 255, 0.08);
+        display: flex !important;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 120px 35px 40px;
+        gap: 5px;
+        transition: right 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 1500;
+    }
+
+
+    .menu.active {
+        right: 0 !important;
+    }
+
+
+    .menu__link {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 22px;
+        font-weight: 600;
+        color: #FFFFFF !important;
+        padding: 18px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .menu__item.active > .menu__link {
+        color: rgba(255, 255, 255, 0.5) !important;
+    }
+
+    .menu__item.active > .menu__link::after {
+        transform: rotate(45deg);
+        color: rgba(255, 255, 255, 0.5);
+    }
+
+    .menu__item > .menu__link::after {
+        content: '+';
+        font-size: 24px;
+        color: var(--primary-red);
+        transition: transform 0.4s;
+    }
+
+    .menu__item.active > .menu__link::after {
+        transform: rotate(45deg);
+    }
+
+    /* 4. Выпадающий список Services */
+    /* Скрыт по умолчанию */
+    .menu__item .dropdown {
+        display: none !important;
+        position: static !important;
+        opacity: 1 !important;
+        visibility: visible !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+
+    /* Показываем при клике */
+    .menu__item.active .dropdown {
+        display: block !important;
+        margin: 10px 0 20px 0;
+        background: rgba(255, 255, 255, 0.03) !important;
+        border-radius: 20px;
+        padding: 15px 25px !important;
+    }
+
+    .dropdown__list {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        list-style: none;
+    }
+
+    .dropdown li a {
+        display: flex !important;
+        color: rgba(255, 255, 255, 0.5) !important;
+        font-size: 17px !important;
+        padding: 12px 0 !important;
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .dropdown li a:hover {
+        color: #b82120 !important;
+        padding-left: 10px;
+    }
+
+    /* Анимация бургера */
+    .burger.active span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+    .burger.active span:nth-child(2) { opacity: 0; }
+    .burger.active span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+}
+
 </style>
 
 </head>
@@ -273,7 +463,7 @@
             <div class="nav-wrapper">
 
                 <a href="/" class="logo">
-    <img src="themes/demo/assets/images/Group 1597878737.png" alt="TI Moving Logo">
+    <img src="themes/demo/assets/images/Group 1597878737.svg" alt="TI Moving Logo">
 </a>
 
                 <nav class="menu">
@@ -299,7 +489,7 @@
 
                 <div class="actions">
                     <a href="tel:+77777777777" class="phone">
-    <img src="themes/demo/assets/images/Group 1597878739.png" alt="Phone Icon">
+    <img src="themes/demo/assets/images/Group 1597878739.svg" alt="Phone Icon">
     <span>+ 7 (777) 777–77–77</span>
 </a>
 
@@ -311,6 +501,11 @@
         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
     </svg>
 </button>
+                    <div class="burger" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
                 </div>
 
             </div>
@@ -326,15 +521,52 @@
 
 
 <script>
+    // 1. УПРАВЛЕНИЕ ШАПКОЙ ПРИ СКРОЛЛЕ
     const header = document.querySelector('.header');
 
     window.addEventListener('scroll', () => {
-        // Если прокрутили больше чем на 50 пикселей вниз
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+    });
+
+    // 2. МОБИЛЬНОЕ МЕНЮ (БУРГЕР)
+    const burger = document.getElementById('burger');
+    const menu = document.querySelector('.menu');
+    const menuItems = document.querySelectorAll('.menu__item');
+
+    burger.addEventListener('click', () => {
+        burger.classList.toggle('active');
+        menu.classList.toggle('active');
+
+        document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
+    });
+
+    // 3. РАСКРЫТИЕ ПОДМЕНЮ (SERVICES) НА МОБИЛКАХ
+    menuItems.forEach(item => {
+        const link = item.querySelector('.menu__link');
+
+        link.addEventListener('click', (e) => {
+            if (window.innerWidth <= 1100) {
+                e.preventDefault();
+
+                item.classList.toggle('active');
+            }
+        });
+    });
+
+    // Дополнительно: Закрытие меню при клике на обычные ссылки (About Us, Gallery и т.д.)
+    const allLinks = document.querySelectorAll('.menu__link:not(.menu__item > .menu__link)');
+    allLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.innerWidth <= 1100) {
+                burger.classList.remove('active');
+                menu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
     });
 </script>
 </body>
