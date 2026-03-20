@@ -648,6 +648,7 @@
             background-size: 100% 100% !important;
         z-index: 10;
     }
+
     }
 
 
@@ -684,6 +685,168 @@
     width: 100%;
     height: 100%;
     object-fit: contain;
+}
+
+
+
+
+.benefits {
+    background-color: #FFFFFF;
+    padding: 30px 0 100px 0;
+    color: #000000;
+}
+
+.benefits__header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.benefits__title {
+    font-family: 'Manrope', sans-serif;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    display: block;
+    transform: scaleY(0.9);
+    transform-origin: center;
+}
+
+.benefits__subtitle {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: rgba(76, 76, 76, 0.7);
+    max-width: 850px;
+    margin: 0 auto 40px;
+    display: block;
+    transform: scaleY(0.9);
+    transform-origin: center;
+}
+
+/* --- СЕТКА С КАРТОЧКАМИ--- */
+.benefits__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 410px);
+    gap: 30px;
+    justify-content: center;
+    padding-bottom: 40px;
+}
+
+.benefit-card {
+    display: flex;
+    flex-direction: column;
+    width: 410px;
+    opacity: 1;
+}
+
+.benefit-card:nth-child(1),
+.benefit-card:nth-child(3) {
+    transform: translateY(0);
+}
+
+.benefit-card:nth-child(2) {
+    transform: translateY(30px);
+}
+
+/* --- ОБЛАСТЬ КАРТИНКИ --- */
+.benefit-card__image {
+    width: 410px;
+    height: 317px;
+    overflow: hidden;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* --- САМА КАРТИНКА --- */
+.benefit-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(1);
+}
+
+/* --- ЭФФЕКТ ПРИ НАВЕДЕНИИ (HOVER) --- */
+.benefit-card:hover .benefit-card__image {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-card:hover .benefit-card__image img {
+    transform: scale(1.07);
+    filter: brightness(1.05);
+}
+
+.benefit-card__name {
+    width: 242px;
+    min-height: 28px;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 27px;
+    line-height: 100%;
+    color: #151515;
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+    display: block;
+    transform: scaleY(1);
+    transform-origin: center;
+}
+
+
+.benefit-card__text {
+    width: 410px;
+    min-height: 35px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 17px;
+    line-height: 120%;
+    color: #555555;
+    letter-spacing: 0%;
+    max-width: 100%;
+}
+
+.benefit-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.benefit-card__image {
+    margin-bottom: 29px;
+}
+
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+@media (max-width: 1300px) {
+    .benefits__grid {
+        grid-template-columns: repeat(3, 1fr);
+        padding: 0 20px 40px;
+    }
+    .benefit-card {
+        width: 100%;
+    }
+    .benefit-card__image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 410 / 317;
+    }
+}
+
+@media (max-width: 768px) {
+    .benefits__grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    .benefit-card:nth-child(2) {
+        transform: translateY(0);
+    }
 }
 </style>
 
@@ -770,6 +933,44 @@
     <div class="hero__divider"></div>
 </section>
 
+    <section class="benefits">
+    <div class="container">
+        <div class="benefits__header">
+            <h2 class="benefits__title">Why TI Moving?</h2>
+            <p class="benefits__subtitle">
+                Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                Текст для описания вашей компании.
+            </p>
+        </div>
+
+        <div class="benefits__grid">
+            <div class="benefit-card">
+                <div class="benefit-card__image">
+                    <img src="themes/demo/assets/images/benefit1.svg" alt="Licensed & Insured">
+                </div>
+                <h3 class="benefit-card__name">Licensed & Insured</h3>
+                <p class="benefit-card__text">Your move is fully protected by certified professionals you can trust.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-card__image">
+                    <img src="themes/demo/assets/images/benefit2.svg" alt="Same-Day Moving">
+                </div>
+                <h3 class="benefit-card__name">Same-Day Moving</h3>
+                <p class="benefit-card__text">Fast response and efficient relocation, even on short notice.</p>
+            </div>
+
+            <div class="benefit-card">
+                <div class="benefit-card__image">
+                    <img src="themes/demo/assets/images/benefit3.svg" alt="Affordable Prices">
+                </div>
+                <h3 class="benefit-card__name">Affordable Prices</h3>
+                <p class="benefit-card__text">Premium moving service without the premium cost. Just contact us and we send you our price!</p>
+            </div>
+        </div>
+    </div>
+</section>
 
 
 <script>
