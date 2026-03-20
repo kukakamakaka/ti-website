@@ -651,7 +651,40 @@
     }
 
 
+/* --- FLOATING ICONS --- */
+.floating-icons {
+    position: absolute;
+    bottom: 20px;
+    right: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    z-index: 20;
+}
 
+.floating-icons__item {
+    width: 50px !important;
+    height: 50px !important;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    padding: 0;
+}
+
+.floating-icons__item:hover {
+    transform: scale(1.1);
+}
+
+.floating-icons__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
 </style>
 
 </head>
@@ -720,6 +753,18 @@
             <p class="hero__text">Licensed, insured, stress-free moves across Florida</p>
             <a href="#" class="btn-quote hero__btn">Get a Quote</a>
         </div>
+    </div>
+
+    <div class="floating-icons">
+        <a href="#" target="_blank" class="floating-icons__item">
+            <img src="themes/demo/assets/images/Group 4375.svg" alt="Scroll">
+        </a>
+        <a href="https://instagram.com/..." target="_blank" class="floating-icons__item">
+            <img src="themes/demo/assets/images/Group 1597878298.svg" alt="Instagram">
+        </a>
+        <a href="https://wa.me/..." target="_blank" class="floating-icons__item">
+            <img src="themes/demo/assets/images/Group 1597878299.svg" alt="WhatsApp">
+        </a>
     </div>
 
     <div class="hero__divider"></div>
