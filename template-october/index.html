@@ -689,7 +689,7 @@
 
 
 
-
+/* --- Why TI Moving? --- */
 .benefits {
     background-color: #FFFFFF;
     padding: 30px 0 100px 0;
@@ -823,29 +823,84 @@
     margin-bottom: 29px;
 }
 
-/* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
+/* --- МОБИЛЬНАЯ АДАПТАЦИЯ (PREMIUM LOOK) --- */
 @media (max-width: 1300px) {
     .benefits__grid {
         grid-template-columns: repeat(3, 1fr);
-        padding: 0 20px 40px;
+        gap: 20px;
+        padding: 0 30px 60px;
     }
-    .benefit-card {
+
+    .benefit-card,
+    .benefit-card__image,
+    .benefit-card__text {
         width: 100%;
     }
+
     .benefit-card__image {
-        width: 100%;
         height: auto;
         aspect-ratio: 410 / 317;
     }
 }
 
+
 @media (max-width: 768px) {
+    .benefits {
+        padding: 40px 0 60px 0;
+    }
+
+    .benefits__header {
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .benefits__title {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .benefits__subtitle {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 30px;
+    }
+
     .benefits__grid {
         grid-template-columns: 1fr;
-        gap: 50px;
+        gap: 45px;
+        padding: 0 20px;
     }
+
     .benefit-card:nth-child(2) {
         transform: translateY(0);
+    }
+
+    .benefit-card__name {
+        width: 100%;
+        font-size: 22px;
+        margin-bottom: 8px;
+        text-align: left;
+    }
+
+    .benefit-card__text {
+        font-size: 15px;
+        line-height: 1.4;
+        text-align: left;
+    }
+
+    .benefit-card__image {
+        margin-bottom: 18px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 380px) {
+    .benefits__title {
+        font-size: 24px;
+    }
+
+    .benefit-card__name {
+        font-size: 20px;
     }
 }
 </style>
