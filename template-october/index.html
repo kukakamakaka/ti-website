@@ -553,7 +553,6 @@
             padding-left: 10px;
         }
 
-        /* Анимация бургера */
         .burger.active span:nth-child(1) {
             transform: translateY(9px) rotate(45deg);
         }
@@ -567,54 +566,46 @@
         }
 
         .hero {
-        /* 1. Шеткі отступтарды (padding) реттейміз, контент дем алуы үшін */
         padding-left: 35px !important;
         padding-right: 35px !important;
-        padding-top: 100px;
-
+        padding-top: 60px;
         height: 100vh;
         text-align: center;
-
         display: flex;
         flex-direction: column;
-        justify-content: center; /* Тігінен ортаға қою */
-        align-items: center;     /* Көлденеңінен ортаға қою */
+        justify-content: center;
+        align-items: center;
 
         background-attachment: scroll !important;
     }
 
        .hero .hero__content {
-        /* 2. Контенттің енін шектейміз, мәтін "жайылып" кетпеуі үшін */
         width: 100%;
-        max-width: 780px; /* Планшетке арналған ең оңтайлы ен */
-        margin: 0 auto !important; /* Міне, осы ортаға қояды */
+        max-width: 780px;
+        margin: 0 auto !important;
     }
 
     .hero .hero__title,
     .hero .hero__title span {
-        /* 3. Әріптерді "басуды" (scaleY) өшіреміз, олар табиғи көрінсін */
         transform: none !important;
-        font-size: 50px !important; /* Планшетке арналған өлшем */
+        font-size: 40px !important;
         line-height: 1.2 !important;
-        margin-bottom: 25px;
+        margin-bottom: 15px;
         text-align: center;
     }
 
     .hero .hero__text {
-        font-size: 21px !important;
+        font-size: 16px !important;
         line-height: 1.4 !important;
-        margin: 0 auto 40px !important; /* Ортаға қою және батырмаға дейінгі қашықтық */
-        max-width: 650px; /* Мәтін тым жайылмауы үшін */
+        margin: 0 auto 40px !important;
+        max-width: 950px;
     }
 
     .hero .btn-quote {
         display: flex !important;
-        margin: 0 auto !important; /* Батырманы ортаға қою */
-
-        /* 4. МІНЕ, ОСЫ БАТЫРМАНЫҢ КЕНЕРІП КЕТУІН ТОҚТАТАДЫ */
+        margin: 0 auto !important;
         width: auto !important;
-        max-width: 350px; /* Батырманың максималды ені */
-
+        max-width: 350px;
         justify-content: center;
         align-items: center;
         height: 60px;
@@ -671,7 +662,7 @@
             <div class="nav-wrapper">
 
                 <a href="/" class="logo">
-    <img src="themes/demo/assets/images/Group 1597878737.svg" alt="TI Moving Logo">
+    <img src="themes/demo/assets/images/logo.svg" alt="TI Moving Logo">
 </a>
 
                 <nav class="menu">
