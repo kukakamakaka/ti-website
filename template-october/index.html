@@ -1300,15 +1300,23 @@
     }
 }
 
-    .next-section {
-    position: relative; /* Бөлгіш дұрыс тұруы үшін міндетті */
-    background: #FFFFFF; /* Немесе келесі секцияның түсі */
-    padding-top: 100px; /* Контент бөлгіштің астында қалмауы үшін */
+/* ==========================================================================
+   ABOUT US SECTION
+   ========================================================================== */
+.about {
+    position: relative;
+    background: #FFFFFF;
+    margin-top: 20px;
+    padding: 60px 0 100px;
+    overflow: visible;
+    border: none;
+    outline: none;
 }
 
-.next-section__divider {
+/* ГОРБИК (DIVIDER) */
+.about__divider {
     position: absolute;
-    top: -50px; /* Енді bottom емес, top арқылы алдыңғы секцияны басамыз */
+    top: -50px;
     left: 0;
     right: 0;
     width: 100%;
@@ -1321,11 +1329,139 @@
     pointer-events: none;
 }
 
-/* MOBILE */
+.about__container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 0 38px;
+}
+
+.about__content {
+    display: flex;
+    align-items: flex-start;
+    gap: 80px;
+}
+
+.about__image {
+    flex: 0 0 595px;
+    height: 430px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-top: -40px;
+    position: relative;
+    z-index: 6;
+}
+
+.about__info {
+    max-width: 556px;
+}
+
+.about__title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 100%;
+    color: #151515;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+.about__text {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 25px;
+    color: #777777;
+    display: inline-block;
+    transform: scaleY(0.9);
+    transform-origin: top;
+}
+
+/* ==========================================================================
+   ELEGANT & PREMIUM MOBILE STYLE (MAX-WIDTH: 768px)
+   ========================================================================== */
 @media (max-width: 768px) {
-    .next-section__divider {
-        top: -20px;
-        height: 45px;
+    .about {
+        position: relative;
+        background: #FFFFFF;
+        /* Паддингті реттейміз */
+        padding: 40px 0 70px;
+
+        /* 1. Секцияны қара фонның астына кіргіземіз */
+        margin-top: -50px;
+
+        /* 2. Бұрыштарды CSS арқылы дөңгелету (SVG-сіз) */
+        border-top-left-radius: 40px;
+        border-top-right-radius: 40px;
+
+        /* 3. Шеттерінде ешқандай артық нәрсе көрінбеуі үшін */
+        border: none;
+        outline: none;
+
+        z-index: 10;
+    }
+
+    /* 4. Мобильді нұсқада бұл дивайдерді өшіріп тастаймыз */
+    .about__divider {
+        display: none !important;
+    }
+
+    .about__container {
+        padding: 0 25px; /* Шеткі бос орындар */
+    }
+
+    .about__content {
+        flex-direction: column;
+        gap: 35px; /* Фото мен мәтін арасы тым тығыз емес */
+        align-items: center;
+    }
+
+    /* ФОТОНЫ КӨРКЕМДЕУ */
+    .about__image {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 420px;
+        height: 260px; /* Жинақы биіктік */
+        margin-top: 0; /* Теңестірдік */
+
+        /* НӘЗІК КӨЛЕҢКЕ (PREMIUM LOOK) */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(0,0,0,0.03); /* Өте әлсіз жиек */
+    }
+
+    .about__info {
+        max-width: 100%;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Элементтерді ортаға қою */
+    }
+
+    /* ТАҚЫРЫПҚА ДЕКОР ҚОСУ */
+    .about__title {
+        font-size: 30px; /* Көзге жағымды өлшем */
+        margin-bottom: 25px; /* Декор мен мәтінге орын */
+        position: relative;
+    }
+
+    /* ТАҚЫРЫП АСТЫНДАҒЫ СЫЗЫҚ */
+    .about__title::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 3px;
+        background: #C01F1F; /* Сенің брендтік қызыл түсің */
+        border-radius: 2px;
+    }
+
+    .about__text {
+        font-size: 15px; /* Мәтінді тағы сәл компактты қылдық */
+        line-height: 22px;
+        transform: scaleY(0.97); /* Ықшамдауды азайттық, әйтпесе оқу қиын */
+        max-width: 500px; /* Мәтін тым жалпақ болмауы үшін */
+        opacity: 0.9; /* Мәтінді жұмсақ көрсету */
     }
 }
 </style>
@@ -1581,11 +1717,29 @@
     </div>
 </section>
 
-    <section class="next-section">
-    <div class="next-section__divider"></div>
+<section class="about">
+    <div class="about__divider"></div>
 
-    <div class="container">
+    <div class="container about__container">
+        <div class="about__content">
+            <div class="about__image">
+                <img src="/themes/demo/assets/images/about-movers.svg" alt="About Us">
+            </div>
+
+            <div class="about__info">
+                <h2 class="about__title">About Us</h2>
+                <p class="about__text">
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.
+                    Текст для описания вашей компании, нужны данные для сайта ваше.
+                </p>
+            </div>
         </div>
+    </div>
 </section>
 
     <script>
