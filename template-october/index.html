@@ -903,6 +903,173 @@
         font-size: 20px;
     }
 }
+
+
+/* ==========================================================================
+    Our Services
+   ========================================================================== */
+.services-dark {
+    background: #151515;
+    width: 100%;
+    min-height: 1433px;
+    position: relative;
+    z-index: 10;
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
+    margin-top: -50px;
+    padding: 100px 0;
+}
+
+.services-dark__title {
+    color: #FFFFFF;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 44px;
+    text-align: center;
+    margin-bottom: 50px;
+    transform: scaleY(0.9);
+    transform-origin: center;
+}
+
+.services-slider {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+.services-slider__track {
+    display: flex;
+    gap: 30px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0 80px;
+    justify-content: center;
+    scrollbar-width: none;
+}
+
+.services-slider__track::-webkit-scrollbar {
+    display: none;
+}
+
+.service-dark-card {
+    flex: 0 0 400px;
+    height: 400px;
+    background: #201D1D;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 20px 90px;
+    scroll-snap-align: center;
+    overflow: visible;
+}
+
+.service-dark-card__icon {
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    opacity: 1;
+    pointer-events: none;
+}
+
+.service-dark-card__icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.service-dark-card__name {
+    position: relative;
+    z-index: 2;
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 27px;
+    color: #FFFFFF;
+    text-align: center;
+    margin-bottom: 12px;
+    transform: scaleY(0.92);
+}
+
+.service-dark-card__text {
+    position: relative;
+    z-index: 2;
+    width: 307px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: 17px;
+    line-height: 24px;
+    color: #B2B2B2;
+    text-align: center;
+    margin-bottom: 0;
+}
+.service-dark-card__btn {
+    width: 50px;
+    height: 50px;
+    background: #C01F1F;
+    border-radius: 50%;
+    position: absolute;
+    border: 10px solid #161616;
+    box-sizing: content-box;
+    bottom: -35px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    cursor: pointer;
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.service-dark-card__btn:hover {
+    background: #D03535;
+    border-color: #2A2A2A;
+}
+    .service-dark-card__btn .service-arrow {
+    width: 15px;
+    height: 23px;
+    transform: rotate(-38.11deg) !important;
+    object-fit: contain;
+    display: block;
+}
+
+.services-dots {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: -25px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    background: #555555;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: #FFFFFF;
+    transform: scale(1);
+}
+
+
 </style>
 
 </head>
@@ -961,7 +1128,8 @@
             </div>
         </div>
     </header>
-<section class="hero">
+
+    <section class="hero">
     <div class="container hero__container">
         <div class="hero__content">
             <h1 class="hero__title">
@@ -1027,8 +1195,81 @@
     </div>
 </section>
 
+<section class="services-dark">
+    <div class="container">
+        <h2 class="services-dark__title">Our Services</h2>
 
-<script>
+        <div class="services-slider">
+            <div class="services-slider__track">
+
+                <div class="service-dark-card">
+                    <div class="service-dark-card__icon">
+                        <img src="themes/demo/assets/images/card1.svg" alt="Icon">
+                    </div>
+                    <h3 class="service-dark-card__name">Storage Solutions</h3>
+                    <p class="service-dark-card__text">Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.</p>
+                    <div class="service-dark-card__btn">
+                        <img src="themes/demo/assets/images/arrow.svg" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    <div class="service-dark-card__icon">
+                        <img src="themes/demo/assets/images/card1.svg" alt="Icon">
+                    </div>
+                    <h3 class="service-dark-card__name">Local Moving</h3>
+                    <p class="service-dark-card__text">Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.</p>
+                    <div class="service-dark-card__btn">
+                        <img src="themes/demo/assets/images/arrow.svg" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    <div class="service-dark-card__icon">
+                        <img src="themes/demo/assets/images/card2.svg" alt="Icon">
+                    </div>
+                    <h3 class="service-dark-card__name">Long Distance Moving</h3>
+                    <p class="service-dark-card__text">Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.</p>
+                    <div class="service-dark-card__btn">
+                        <img src="themes/demo/assets/images/arrow.svg" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    <div class="service-dark-card__icon">
+                        <img src="themes/demo/assets/images/card3.svg" alt="Icon">
+                    </div>
+                    <h3 class="service-dark-card__name">Commercial (Office) Moving</h3>
+                    <p class="service-dark-card__text">Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.</p>
+                    <div class="service-dark-card__btn">
+                        <img src="themes/demo/assets/images/arrow.svg" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+                <div class="service-dark-card">
+                    <div class="service-dark-card__icon">
+                        <img src="themes/demo/assets/images/card3.svg" alt="Icon">
+                    </div>
+                    <h3 class="service-dark-card__name">Office / Commercial Moving</h3>
+                    <p class="service-dark-card__text">Текст для описания вашей компании, нужны данные для сайта ваше описание будет здесь.</p>
+                    <div class="service-dark-card__btn">
+                        <img src="themes/demo/assets/images/arrow.svg" class="service-arrow" alt="Go">
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="services-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </div>
+    </div>
+</section>
+    <script>
     // 1. УПРАВЛЕНИЕ ШАПКОЙ ПРИ СКРОЛЛЕ
     const header = document.querySelector('.header');
 
@@ -1076,6 +1317,38 @@
             }
         });
     });
+
+    // 4. СКРОЛЛ КАРТОЧЕК
+const track = document.querySelector('.services-slider__track');
+const dots = document.querySelectorAll('.dot');
+
+track.addEventListener('scroll', () => {
+    const cardWidth = 414;
+    const index = Math.round(track.scrollLeft / cardWidth);
+
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+    });
+});
+
+
+window.addEventListener('load', () => {
+    const track = document.querySelector('.services-slider__track');
+    const cards = document.querySelectorAll('.service-dark-card');
+
+    if (cards.length >= 2) {
+        const isMobile = window.innerWidth <= 768;
+        const targetIndex = isMobile ? 1 : 2;
+        const targetCard = cards[targetIndex];
+
+        const scrollPos = targetCard.offsetLeft - (window.innerWidth / 2) + (targetCard.offsetWidth / 2);
+
+        track.scrollTo({
+            left: scrollPos,
+            behavior: 'auto'
+        });
+    }
+});
 </script>
 </body>
 </html>
