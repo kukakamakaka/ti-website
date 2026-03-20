@@ -268,9 +268,25 @@
     padding-left: -40px;
     padding-right: 100px;
     position: relative;
+    overflow: hidden;
     z-index: 1;
 }
+.hero__divider {
+    position: absolute;
+    bottom: -50px;
+    left: 1px;
+    right: 1px;
+    width: auto;
+    height: 110px;
 
+    background-image: url('/themes/demo/assets/images/Rectangle 1862.svg');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center bottom;
+
+    z-index: 5;
+    pointer-events: none;
+}
 .hero__container {
     width: 100%;
     max-width: 1400px;
@@ -551,51 +567,74 @@
         }
 
         .hero {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-            padding-top: 80px;
-            height: 100vh;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-attachment: scroll !important;
-        }
+        /* 1. Шеткі отступтарды (padding) реттейміз, контент дем алуы үшін */
+        padding-left: 35px !important;
+        padding-right: 35px !important;
+        padding-top: 100px;
 
-        .hero .hero__content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
+        height: 100vh;
+        text-align: center;
 
-        .hero .hero__title,
-        .hero .hero__title span {
-            transform: none !important;
-            font-size: 42px !important;
-            line-height: 1.2 !important;
-            margin-bottom: 20px;
-            letter-spacing: -0.01em;
-        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center; /* Тігінен ортаға қою */
+        align-items: center;     /* Көлденеңінен ортаға қою */
 
-        .hero .hero__text {
-            font-size: 18px !important;
-            line-height: 1.4 !important;
-            margin: 0 auto 30px !important;
-            max-width: 100%;
-            font-weight: 400;
-        }
+        background-attachment: scroll !important;
+    }
 
+       .hero .hero__content {
+        /* 2. Контенттің енін шектейміз, мәтін "жайылып" кетпеуі үшін */
+        width: 100%;
+        max-width: 780px; /* Планшетке арналған ең оңтайлы ен */
+        margin: 0 auto !important; /* Міне, осы ортаға қояды */
+    }
 
-        .hero .btn-quote {
-            display: inline-flex !important;
-            width: 100% !important;
-            max-width: 320px !important;
-            height: 50px !important;
-            padding: 0 !important;
-            font-size: 18px !important;
-            margin: 0 auto;
-            justify-content: center;
-        }
+    .hero .hero__title,
+    .hero .hero__title span {
+        /* 3. Әріптерді "басуды" (scaleY) өшіреміз, олар табиғи көрінсін */
+        transform: none !important;
+        font-size: 50px !important; /* Планшетке арналған өлшем */
+        line-height: 1.2 !important;
+        margin-bottom: 25px;
+        text-align: center;
+    }
+
+    .hero .hero__text {
+        font-size: 21px !important;
+        line-height: 1.4 !important;
+        margin: 0 auto 40px !important; /* Ортаға қою және батырмаға дейінгі қашықтық */
+        max-width: 650px; /* Мәтін тым жайылмауы үшін */
+    }
+
+    .hero .btn-quote {
+        display: flex !important;
+        margin: 0 auto !important; /* Батырманы ортаға қою */
+
+        /* 4. МІНЕ, ОСЫ БАТЫРМАНЫҢ КЕНЕРІП КЕТУІН ТОҚТАТАДЫ */
+        width: auto !important;
+        max-width: 350px; /* Батырманың максималды ені */
+
+        justify-content: center;
+        align-items: center;
+        height: 60px;
+        font-size: 20px;
+    }
+}
+        .hero__divider {
+        bottom: -20px !important;
+            left: 1px !important;
+        right: 1px !important;
+        width: auto !important;
+            height: 70px !important;
+        background-image: url('/themes/demo/assets/images/Rectangle 1862.svg') !important;
+        background-repeat: no-repeat !important;
+        background-size: 100% 100% !important;
+        background-position: center bottom !important;
+
+        z-index: 10 !important;
+        pointer-events: none;
+    }
     }
 
     /* маленькие экраны (iPhone SE и т.д.) */
@@ -604,16 +643,23 @@
         .hero .hero__title span {
             font-size: 34px !important;
         }
-
         .hero .hero__text {
             font-size: 16px !important;
         }
-
         .hero .btn-quote {
             max-width: 100% !important;
         }
+        .hero__divider {
+        height: 45px !important;
+            bottom: -20px !important;
+        left: 1px !important;
+        right: 1px !important;
+            background-size: 100% 100% !important;
+        z-index: 10;
     }
-}
+    }
+
+
 
 </style>
 
@@ -684,6 +730,8 @@
             <a href="#" class="btn-quote hero__btn">Get a Quote</a>
         </div>
     </div>
+
+    <div class="hero__divider"></div>
 </section>
 
 
