@@ -1219,15 +1219,84 @@
     color: #B2B2B2;
 }
 
-/* АДАПТИВ (МОБИЛЬДІ НҰСҚА) */
-@media (max-width: 1024px) {
+/* ==========================================================================
+   COMPACT MOBILE STYLE (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .reviews {
+        padding: 0px 0 60px;
+    }
+
+    .reviews__title {
+        font-size: 28px;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
     .reviews__grid {
         flex-direction: column;
         align-items: center;
+        gap: 15px;
+        padding: 0 16px;
     }
+
     .review-card {
         width: 100%;
-        max-width: 410px;
+        max-width: 100%;
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+
+    .review-card__score {
+        font-size: 42px;
+        line-height: 1.1;
+        margin-bottom: 8px;
+    }
+
+    .review-card__stars {
+        width: 110px;
+        height: 24px;
+        margin-bottom: 20px;
+    }
+
+    .review-card__subtext {
+        font-size: 16px;
+        line-height: 1.4;
+        margin-bottom: 25px;
+    }
+
+    .review-card__count {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .review-social-icon {
+        width: 54px;
+        height: 54px;
+    }
+
+    .review-social-icon img {
+        width: 28px;
+    }
+
+    .review-card__user {
+        gap: 12px;
+        margin-bottom: 15px;
+    }
+
+    .review-card__avatar {
+        width: 44px;
+        height: 44px;
+    }
+
+    .review-card__name {
+        font-size: 20px;
+    }
+
+    .review-card__desc {
+        font-size: 15px;
+        line-height: 1.5;
     }
 }
 </style>
