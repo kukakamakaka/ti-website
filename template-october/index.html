@@ -1464,6 +1464,109 @@
         opacity: 0.9; /* Мәтінді жұмсақ көрсету */
     }
 }
+
+/* ==========================================================================
+   GALLERY SECTION (FIXED CENTER VIEW)
+   ========================================================================== */
+.gallery {
+    background: #FFFFFF;
+    padding: 0px 0 100px;
+    overflow: hidden;
+}
+
+.gallery__container {
+    width: 100%;
+    max-width: none; /* Экранның максималды ені */
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery__title {
+    font-family: 'Noto Sans', sans-serif;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: 100%;
+    color: #151515;
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 70px;
+}
+
+/* СЛАЙДЕР КОНТЕЙНЕРІ */
+.gallery__slider {
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.gallery__slider::-webkit-scrollbar {
+    display: none;
+}
+
+.gallery__track {
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    width: max-content;
+}
+
+.gallery__item {
+    /* Сенің өлшемдерің */
+    flex: 0 0 calc(33.333vw - 80px);
+    height: 515px;
+    border-radius: 15px;
+    overflow: hidden;
+    scroll-snap-align: center;
+}
+
+.gallery__item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* DOTS */
+.gallery__dots {
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 60px;
+}
+
+.gallery__dot {
+    width: 13px;
+    height: 13px;
+    background: #ADADAD;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+.gallery__dot--active {
+    background: #FF0009;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .gallery__track {
+        padding: 0 40px;
+        gap: 15px;
+    }
+
+    .gallery__item {
+        flex: 0 0 280px;
+        height: 320px;
+    }
+
+    .gallery__title {
+        font-size: 32px;
+    }
+}
 </style>
 
 </head>
@@ -1717,7 +1820,7 @@
     </div>
 </section>
 
-<section class="about">
+    <section class="about">
     <div class="about__divider"></div>
 
     <div class="container about__container">
@@ -1739,6 +1842,49 @@
                 </p>
             </div>
         </div>
+    </div>
+</section>
+
+    <section class="gallery">
+    <div class="container gallery__container">
+
+        <h2 class="gallery__title">See Our Movers in Action</h2>
+
+        <div class="gallery__slider">
+            <div class="gallery__track">
+
+                <div class="gallery__item">
+                    <img src="/themes/demo/assets/images/gallery-2.svg" alt="Movers in Action 1">
+                </div>
+
+                <div class="gallery__item">
+                    <img src="/themes/demo/assets/images/gallery-2.svg" alt="Movers in Action 2">
+                </div>
+
+                <div class="gallery__item">
+                    <img src="/themes/demo/assets/images/gallery-3.svg" alt="Movers in Action 3">
+                </div>
+
+                <div class="gallery__item">
+                    <img src="/themes/demo/assets/images/gallery-4.svg" alt="Movers in Action 4">
+                </div>
+
+                <div class="gallery__item">
+                    <img src="/themes/demo/assets/images/gallery-4.svg" alt="Movers in Action 5">
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="gallery__dots">
+            <span class="gallery__dot gallery__dot--active"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+            <span class="gallery__dot"></span>
+        </div>
+
     </div>
 </section>
 
@@ -1818,6 +1964,23 @@ window.addEventListener('load', () => {
 
         track.scrollTo({
             left: scrollPos,
+            behavior: 'auto'
+        });
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.querySelector('.gallery__slider');
+    const items = document.querySelectorAll('.gallery__item');
+
+    if (slider && items.length >= 3) {
+        // 3-ші суреттің (index 2) ортасын тауып, соған скролл жасаймыз
+        const targetItem = items[2];
+        const scrollOffset = targetItem.offsetLeft - (slider.clientWidth / 2) + (targetItem.clientWidth / 2);
+
+        // Бірден ортасына қою (behavior: 'auto')
+        slider.scrollTo({
+            left: scrollOffset,
             behavior: 'auto'
         });
     }
