@@ -1383,13 +1383,13 @@
     .about {
         position: relative;
         background: #FFFFFF;
-        padding: 40px 0 20px;
+        padding: 40px 0 70px;
         margin-top: -50px;
-        margin-bottom: 0;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
         border: none;
         outline: none;
+
         z-index: 10;
     }
 
@@ -1588,6 +1588,275 @@
     }
     .gallery__title {
         font-size: 28px;
+    }
+}
+
+
+
+/* ==========================================================================
+   CONTACT SECTION
+   ========================================================================== */
+.contact {
+    background: #FFFFFF;
+    padding: 0px 0 100px;
+}
+
+.contact__container {
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 0 0px;
+}
+
+.contact__card {
+    background: linear-gradient(0deg, rgba(24, 24, 24, 0.65), rgba(24, 24, 24, 0.65)),
+                url('/themes/demo/assets/images/Rectangle 35.svg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 20px;
+    padding: 70px 0;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.contact__content {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1300px;
+    gap:   100px;
+}
+
+/*(TITLE & FORM) */
+.contact__left {
+    flex: 0 0 750px;
+    padding-left: 0px;
+}
+
+.contact__title {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 58px;
+    font-weight: 500;
+    line-height: 1.3;
+    transform: scaleY(0.90);
+    letter-spacing: -0.02em;
+    text-edge: cap alphabetic;
+    leading-trim: both;
+    color: #FFFFFF;
+    margin-bottom: 30px;
+    max-width: 530px;
+}
+
+.contact__highlight {
+    font-weight: 900;
+    transform: scaleY(0.90);
+    -webkit-text-stroke: 1px #FFFFFF; /* Әріптің сыртын 1px-ге жуандату */
+    display: inline-block;
+    position: relative;
+    z-index: 1;
+    letter-spacing: -0.04em;
+}
+
+.contact__highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: url('/themes/demo/assets/images/vector-line.svg') no-repeat;
+    background-size: contain;
+    z-index: -1;
+}
+
+/* ФОРМА ТОРЫ */
+.form__grid {
+    margin-top: -10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 13px;
+}
+
+.form__grid-row {
+    grid-column: span 3;
+    display: flex;
+    gap: 13px;
+    width: 100%;
+}
+
+
+.form__grid-row .form__input {
+    flex: 1 1 calc(50% - 6.5px);
+    grid-column: auto;
+}
+
+.form__input--half {
+    grid-column: auto;
+}
+
+.form__input {
+    height: 61px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: none;
+    border-radius: 9px;
+    padding: 0 20px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.form__input::placeholder {
+    color: rgb(255, 255, 255);
+    font-size: 22px;
+    line-height: normal;
+    vertical-align: middle;
+}
+
+.form__input::-webkit-input-placeholder { line-height: 58px; }
+.form__input::-moz-placeholder { line-height: 58px; }
+.form__input:-ms-input-placeholder { line-height: 58px; }
+
+.form__input--half {
+    grid-column: span 1.5;
+}
+
+.contact__btn {
+    margin-top: 25px;
+    width: 235px;
+    height: 60px;
+    background: #C01F1F;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.contact__btn:hover {
+    background: #A01919;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(192, 31, 31, 0.3);
+}
+
+.contact__btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(192, 31, 31, 0.2);
+    background: #8E1616;
+}
+.contact__right {
+    flex: 0 0 320px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin-right: 120px;
+    padding-top: 10px;
+    align-items: flex-start;
+}
+
+.contact__info-item {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+
+.contact__icon-box {
+    width: 38px;
+    height: 39px;
+    border: 1px solid rgba(255, 255, 255, 1);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+    .contact__icon-box img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s ease;
+}
+
+
+.contact__icon-box:hover {
+    border-color: #ffffff; =
+    background: rgba(0, 0, 0, 0.09);
+}
+
+.contact__icon-box:hover img {
+    transform: scale(1.1);
+}
+
+.info__label {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color: rgb(255, 255, 255);
+}
+
+.contact__info-text p {
+    color: #FFFFFF;
+    font-size: 25px;
+    line-height: 1.4;
+}
+
+.info__link {
+    color: #FFFFFF;
+    font-size: 25px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 300;
+    line-height: 120%;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 1px;
+    text-decoration-color: rgba(255, 255, 255, 0.7);
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    transition: 0.3s ease;
+}
+
+.info__link .arrow {
+    display: inline-block;
+    transform: rotate(-62.2deg);
+    font-size: 18px;
+    line-height: 1;
+    font-weight: 400;
+    text-decoration: none !important;
+}
+
+.info__link:hover {
+    opacity: 0.8;
+    text-decoration-color: rgba(255, 255, 255, 1); /* Сызық толық көрінеді */
+}
+
+/* Адаптивка */
+@media (max-width: 1024px) {
+    .contact__content {
+        flex-direction: column;
+    }
+    .form__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .contact__card {
+        padding: 30px 20px;
+    }
+    .contact__title {
+        font-size: 32px;
+    }
+    .form__grid {
+        grid-template-columns: 1fr;
     }
 }
 </style>
@@ -1908,6 +2177,71 @@
             <span class="gallery__dot"></span>
         </div>
 
+    </div>
+</section>
+
+    <section class="contact">
+    <div class="contact__container">
+        <div class="contact__card">
+            <div class="contact__content">
+                <div class="contact__left">
+                    <h2 class="contact__title">
+                        Feel free to <span class="contact__highlight">contact</span> us to learn more
+                    </h2>
+
+                    <form class="contact__form">
+    <div class="form__grid">
+        <input type="text" placeholder="Your Name*" class="form__input">
+        <input type="tel" placeholder="Phone*" class="form__input">
+        <input type="email" placeholder="Email" class="form__input">
+
+        <input type="text" placeholder="From Address*" class="form__input">
+        <input type="text" placeholder="To Address*" class="form__input">
+        <input type="date" class="form__input">
+
+        <div class="form__grid-row form__grid-row--half-width">
+            <input type="text" placeholder="Move Type" class="form__input form__input--half">
+            <input type="text" placeholder="Volume" class="form__input form__input--half">
+        </div>
+    </div>
+    <button type="submit" class="contact__btn">Get a Quote</button>
+</form>
+                </div>
+
+                <div class="contact__right">
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="/themes/demo/assets/images/loc-icon.svg" alt="Location">
+                        </div>
+                        <div class="contact__info-text">
+                            <span class="info__label">Address:</span>
+                            <p>1234 NW 45th Ave, Fort Lauderdale, FL 33309</p>
+                            <a href="#" class="info__link">show on map <span class="arrow">→</span></a>
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="/themes/demo/assets/images/phone-icon.svg" alt="Phone">
+                        </div>
+                        <div class="contact__info-text">
+                            <span class="info__label">Phone:</span>
+                            <p>+7 (777) 777 77 77</p>
+                        </div>
+                    </div>
+
+                    <div class="contact__info-item">
+                        <div class="contact__icon-box">
+                            <img src="/themes/demo/assets/images/mail-icon.svg" alt="Email">
+                        </div>
+                        <div class="contact__info-text">
+                            <span class="info__label">Email:</span>
+                            <p>examplemail.kz@mail.ru</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
