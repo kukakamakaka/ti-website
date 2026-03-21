@@ -1383,49 +1383,38 @@
     .about {
         position: relative;
         background: #FFFFFF;
-        /* Паддингті реттейміз */
-        padding: 40px 0 70px;
-
-        /* 1. Секцияны қара фонның астына кіргіземіз */
+        padding: 40px 0 20px;
         margin-top: -50px;
-
-        /* 2. Бұрыштарды CSS арқылы дөңгелету (SVG-сіз) */
+        margin-bottom: 0;
         border-top-left-radius: 40px;
         border-top-right-radius: 40px;
-
-        /* 3. Шеттерінде ешқандай артық нәрсе көрінбеуі үшін */
         border: none;
         outline: none;
-
         z-index: 10;
     }
 
-    /* 4. Мобильді нұсқада бұл дивайдерді өшіріп тастаймыз */
     .about__divider {
         display: none !important;
     }
 
     .about__container {
-        padding: 0 25px; /* Шеткі бос орындар */
+        padding: 0 25px;
     }
 
     .about__content {
         flex-direction: column;
-        gap: 35px; /* Фото мен мәтін арасы тым тығыз емес */
+        gap: 35px;
         align-items: center;
     }
 
-    /* ФОТОНЫ КӨРКЕМДЕУ */
     .about__image {
         flex: 0 0 auto;
         width: 100%;
         max-width: 420px;
-        height: 260px; /* Жинақы биіктік */
-        margin-top: 0; /* Теңестірдік */
-
-        /* НӘЗІК КӨЛЕҢКЕ (PREMIUM LOOK) */
+        height: 260px;
+        margin-top: 0;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        border: 1px solid rgba(0,0,0,0.03); /* Өте әлсіз жиек */
+        border: 1px solid rgba(0,0,0,0.03);
     }
 
     .about__info {
@@ -1433,35 +1422,32 @@
         text-align: center;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Элементтерді ортаға қою */
+        align-items: center;
     }
 
-    /* ТАҚЫРЫПҚА ДЕКОР ҚОСУ */
     .about__title {
-        font-size: 30px; /* Көзге жағымды өлшем */
-        margin-bottom: 25px; /* Декор мен мәтінге орын */
+        font-size: 30px;
+        margin-bottom: 25px;
         position: relative;
     }
-
-    /* ТАҚЫРЫП АСТЫНДАҒЫ СЫЗЫҚ */
     .about__title::after {
         content: '';
         position: absolute;
         bottom: -12px;
         left: 50%;
         transform: translateX(-50%);
-        width: 60px;
-        height: 3px;
-        background: #C01F1F; /* Сенің брендтік қызыл түсің */
+        width: 70px;
+        height: 2px;
+        background: #C01F1F;
         border-radius: 2px;
     }
 
     .about__text {
-        font-size: 15px; /* Мәтінді тағы сәл компактты қылдық */
+        font-size: 15px;
         line-height: 22px;
-        transform: scaleY(0.97); /* Ықшамдауды азайттық, әйтпесе оқу қиын */
-        max-width: 500px; /* Мәтін тым жалпақ болмауы үшін */
-        opacity: 0.9; /* Мәтінді жұмсақ көрсету */
+        transform: scaleY(0.97);
+        max-width: 500px;
+        opacity: 0.9;
     }
 }
 
@@ -1494,7 +1480,6 @@
     margin-bottom: 70px;
 }
 
-/* СЛАЙДЕР КОНТЕЙНЕРІ */
 .gallery__slider {
     width: 100%;
     overflow-x: auto;
@@ -1517,7 +1502,6 @@
 }
 
 .gallery__item {
-    /* Сенің өлшемдерің */
     flex: 0 0 calc(33.333vw - 80px);
     height: 515px;
     border-radius: 15px;
@@ -1544,7 +1528,8 @@
     height: 13px;
     background: #ADADAD;
     border-radius: 50%;
-    transition: 0.3s;
+    transition: background-color 0.3s ease; /* Түстің жұмсақ ауысуы үшін */
+    cursor: pointer;
 }
 
 .gallery__dot--active {
@@ -1552,19 +1537,57 @@
 }
 
 /* MOBILE */
-@media (max-width: 768px) {
-    .gallery__track {
-        padding: 0 40px;
-        gap: 15px;
-    }
-
+@media (max-width: 1024px) {
     .gallery__item {
-        flex: 0 0 280px;
-        height: 320px;
+        flex: 0 0 calc(45vw);
+        height: 400px;
+    }
+    .gallery__title {
+        font-size: 40px;
+        margin-bottom: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .gallery {
+        padding: 40px 0 60px;
     }
 
     .gallery__title {
         font-size: 32px;
+        margin-bottom: 40px;
+        padding: 0 20px;
+    }
+
+    .gallery__track {
+        gap: 15px;
+        padding: 0 20px;
+    }
+
+    .gallery__item {
+        flex: 0 0 80vw;
+        height: 350px;
+        scroll-snap-align: center;
+    }
+
+    .gallery__dots {
+        gap: 15px;
+        margin-top: 30px;
+    }
+
+    .gallery__dot {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery__item {
+        flex: 0 0 85vw;
+        height: 300px;
+    }
+    .gallery__title {
+        font-size: 28px;
     }
 }
 </style>
@@ -1889,99 +1912,68 @@
 </section>
 
     <script>
-    // 1. УПРАВЛЕНИЕ ШАПКОЙ ПРИ СКРОЛЛЕ
+   document.addEventListener('DOMContentLoaded', () => {
+    // 1. УПРАВЛЕНИЕ ШАПКОЙ
     const header = document.querySelector('.header');
-
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+        header.classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // 2. МОБИЛЬНОЕ МЕНЮ (БУРГЕР)
+    // 2. МОБИЛЬНОЕ МЕНЮ
     const burger = document.getElementById('burger');
     const menu = document.querySelector('.menu');
-    const menuItems = document.querySelectorAll('.menu__item');
-
-    burger.addEventListener('click', () => {
+    burger?.addEventListener('click', () => {
         burger.classList.toggle('active');
         menu.classList.toggle('active');
-
         document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : 'auto';
     });
 
-    // 3. РАСКРЫТИЕ ПОДМЕНЮ (SERVICES) НА МОБИЛКАХ
-    menuItems.forEach(item => {
-        const link = item.querySelector('.menu__link');
+    // 3. ГАЛЕРЕЯ СКРОЛЛ ЖӘНЕ НҮКТЕЛЕР (ОСЫ ЖЕР МАҢЫЗДЫ)
+    const gallerySlider = document.querySelector('.gallery__slider');
+    const galleryDots = document.querySelectorAll('.gallery__dot');
+    const galleryItems = document.querySelectorAll('.gallery__item');
 
-        link.addEventListener('click', (e) => {
-            if (window.innerWidth <= 1100) {
-                e.preventDefault();
+    if (gallerySlider && galleryDots.length > 0) {
+        // Функция: Нүктелерді жаңарту
+        const updateGalleryDots = () => {
+            const scrollLeft = gallerySlider.scrollLeft;
+            const itemWidth = galleryItems[0].offsetWidth + 40; // 40 - бұл gap
 
-                item.classList.toggle('active');
-            }
-        });
-    });
+            // Есептеуді дәлірек жасау үшін +10px қосамыз
+            const activeIndex = Math.round(scrollLeft / itemWidth);
 
-    // Дополнительно: Закрытие меню при клике на обычные ссылки (About Us, Gallery и т.д.)
-    const allLinks = document.querySelectorAll('.menu__link:not(.menu__item > .menu__link)');
-    allLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.innerWidth <= 1100) {
-                burger.classList.remove('active');
-                menu.classList.remove('active');
-                document.body.style.overflow = 'auto';
-            }
-        });
-    });
+            galleryDots.forEach((dot, index) => {
+                dot.classList.toggle('gallery__dot--active', index === activeIndex);
+            });
+        };
 
-    // 4. СКРОЛЛ КАРТОЧЕК
-const track = document.querySelector('.services-slider__track');
-const dots = document.querySelectorAll('.dot');
+        // Скролл кезінде бақылау
+        gallerySlider.addEventListener('scroll', updateGalleryDots);
 
-track.addEventListener('scroll', () => {
-    const cardWidth = 414;
-    const index = Math.round(track.scrollLeft / cardWidth);
+        // По умолчанию ортаңғы (3-ші) суреттен бастау
+        if (galleryItems.length >= 3) {
+            const targetItem = galleryItems[2];
+            const scrollOffset = targetItem.offsetLeft - (gallerySlider.clientWidth / 2) + (targetItem.offsetWidth / 2);
 
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
-});
-
-
-window.addEventListener('load', () => {
-    const track = document.querySelector('.services-slider__track');
-    const cards = document.querySelectorAll('.service-dark-card');
-
-    if (cards.length >= 2) {
-        const isMobile = window.innerWidth <= 768;
-        const targetIndex = isMobile ? 1 : 2;
-        const targetCard = cards[targetIndex];
-
-        const scrollPos = targetCard.offsetLeft - (window.innerWidth / 2) + (targetCard.offsetWidth / 2);
-
-        track.scrollTo({
-            left: scrollPos,
-            behavior: 'auto'
-        });
+            gallerySlider.scrollTo({
+                left: scrollOffset,
+                behavior: 'auto'
+            });
+            // Скроллдан кейін нүктені бір рет жаңарту
+            setTimeout(updateGalleryDots, 100);
+        }
     }
-});
 
-document.addEventListener('DOMContentLoaded', () => {
-    const slider = document.querySelector('.gallery__slider');
-    const items = document.querySelectorAll('.gallery__item');
-
-    if (slider && items.length >= 3) {
-        // 3-ші суреттің (index 2) ортасын тауып, соған скролл жасаймыз
-        const targetItem = items[2];
-        const scrollOffset = targetItem.offsetLeft - (slider.clientWidth / 2) + (targetItem.clientWidth / 2);
-
-        // Бірден ортасына қою (behavior: 'auto')
-        slider.scrollTo({
-            left: scrollOffset,
-            behavior: 'auto'
+    // 4. SERVICES SLIDER (Сенің бұрынғы кодың)
+    const servicesTrack = document.querySelector('.services-slider__track');
+    const servicesDots = document.querySelectorAll('.dot');
+    if (servicesTrack) {
+        servicesTrack.addEventListener('scroll', () => {
+            const cardWidth = 414;
+            const index = Math.round(servicesTrack.scrollLeft / cardWidth);
+            servicesDots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
         });
     }
 });
