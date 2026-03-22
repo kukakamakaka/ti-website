@@ -1589,7 +1589,8 @@
 /* ==========================================================================
    CONTACT SECTION
    ========================================================================== */
-.contact {
+
+    .contact {
     background: #FFFFFF;
     padding: 0px 0 100px;
 }
@@ -1955,22 +1956,49 @@
     }
 }
 
-    .footer {
-    background: #181818;
+
+    /* ==========================================================================
+   FOOTER
+   ========================================================================== */
+
+.footer {
+    background: #151515
     width: 100%;
     position: relative;
+    padding-top: 60px;
     padding-bottom: 40px;
     color: #FFFFFF;
+    z-index: 1;
 }
 
 .footer__divider-vector {
     width: 100%;
-    margin-bottom: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    pointer-events: none;
 }
 
-.footer__divider-vector img {
-    width: 100%;
+.vector-left {
+    width: 23% !important;
+    height: auto;
     display: block;
+    opacity: 1;
+    position: relative;
+    top: -113px;
+}
+
+.vector-right {
+    width: 70% !important;
+    height: auto;
+    display: block;
+    transform: scaleX(-1);
+    position: relative;
+    top: -90px;
+    margin-left: -1%;
 }
 
 .footer__container {
@@ -1990,9 +2018,12 @@
 .footer__questions-title {
     font-family: 'Noto Sans', sans-serif;
     font-weight: 700;
-    font-size: 26px;
+    font-size: 30px;
     line-height: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 23px;
+    display: inline-block;
+    transform: scaleY(0.9);
+    transform-origin: bottom;
 }
 
 .footer__questions-subtitle {
@@ -2008,7 +2039,7 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 100%;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 /* Lists & Links */
@@ -2063,16 +2094,15 @@
     background: rgba(255, 255, 255, 0.1);
 }
 
-/* Bottom Part */
 .footer__bottom {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .footer__line {
     width: 100%;
     height: 1px;
     background: rgba(255, 255, 255, 0.1);
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .footer__copyright {
@@ -2080,6 +2110,64 @@
     font-size: 12px;
     font-weight: 400;
     color: rgba(255, 255, 255, 0.5);
+}
+
+
+.footer__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 25px;
+    width: 200px;
+    height: 52px;
+    background: #C01F1F;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 300px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    font-size: 23px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+
+.footer__btn:hover {
+    background: #A01919;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(192, 31, 31, 0.3);
+}
+
+.footer__btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(192, 31, 31, 0.2);
+    background: #8E1616;
+}
+
+.footer__contact-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #DDDDDD;
+    margin-bottom: 15px;
+}
+
+.footer__zip-code {
+    display: inline-block;
+}
+
+.footer__contact-link {
+    display: block;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #DDDDDD;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 /* Mobile Adaptive */
@@ -2495,8 +2583,9 @@
 
     <footer class="footer">
     <div class="footer__divider-vector">
-        <img src="themes/demo/assets/images/Vector — копия.svg" alt="divider">
-    </div>
+    <img src="themes/demo/assets/images/VVVector.svg" alt="divider" class="vector-left">
+    <img src="themes/demo/assets/images/VVVector.svg" alt="divider" class="vector-right">
+</div>
 
     <div class="container footer__container">
         <div class="footer__top">
@@ -2528,14 +2617,17 @@
 
             <div class="footer__col footer__col-contacts">
                 <h3 class="footer__col-title">Contact Us</h3>
-                <p class="footer__contact-text">1234 NW 45th Ave, Fort Lauderdale, FL 33309</p>
+<p class="footer__contact-text">
+    1234 NW 45th Ave, Fort Lauderdale, <br>
+    <span class="footer__zip-code">FL 33309</span>
+</p>
                 <a href="mailto:examplemail.kz@mail.ru" class="footer__contact-link">examplemail.kz@mail.ru</a>
                 <a href="tel:+77777777777" class="footer__contact-link footer__phone">+7 (777) 777 77 77</a>
             </div>
 
             <div class="footer__socials">
                 <a href="#" class="footer__social-item"><img src="themes/demo/assets/images/instagram.svg" alt="Insta"></a>
-                <a href="#" class="footer__social-item"><img src="themes/demo/assets/images/facebook.svg" alt="FB"></a>
+                <a href="#" class="footer__social-item"><img src="themes/demo/assets/images/instagram1.svg" alt="FB"></a>
             </div>
         </div>
 
